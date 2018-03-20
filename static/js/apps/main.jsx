@@ -2,18 +2,29 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { catalog } from './../../../data/mock';
 
+const Total = ({ total, price, id }) => <p>{total}{price}, id: {id}</p>
+
 
 const App = ({ message }) => <div>{ message }</div>;
 
-    const ListItem = ({ imageURL, name, currency, price, btn }) =>
+    const ListItem = ({ imageURL, name, currency, price, id }) =>
     catalog.map((data) =>
-      <div className="container">
-        <img src={ data.imageURL } width="150px" height="150px" alt="placeholder+image"/>
+      <div className="container" key={data.id}>
+        <img src={ data.imageURL } width="150px" height="150px" alt={data.id}/>
         <p>{ data.name }</p>
         <p>{ data.currency }{ data.price }</p>
-        <button onClick="">Add to Cart</button>
+        <button id="btn" value={data.id} onClick={ addToCart }>Add to Cart</button>
       </div>
-    )
+    );
+
+function addToCart({ListItem}) {
+  const total = 0;
+  console.log(total);
+  const btn = document.getElementById('btn');
+  console.log(btn)
+
+  /*ReactDOM.render(<Total total="Total: " id={data.id} price={total + data.price} />, document.getElementById('total'))*/
+}
 
 
 ReactDOM.render(<App message="Product List" />, document.getElementById('app'));
