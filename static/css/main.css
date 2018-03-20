@@ -1,1 +1,29 @@
 /* you can add any styles you think could improve user's experience */
+#products {
+  background-color: bisque;
+}
+
+.container {
+  display: inline-block;
+  background-color: white;;
+  margin: 2em 3em;
+  cursor: pointer;
+  text-align: center;
+  transition: transform .2s;
+}
+
+.container:hover {
+  transform: scale(1.2);
+}
+
+button {
+  background-color: purple;
+  padding: 1em;
+  border-radius: 0.5em;
+  color: white;
+}
+
+button:hover {
+  background-color: green;
+  cursor: pointer;
+}
